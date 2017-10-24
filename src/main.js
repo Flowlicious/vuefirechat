@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import store from './store'
+import { getAllUsers } from './store/actions'
 
 let config = { //TODO CONFIG FILE?
   apiKey: "AIzaSyBUZ8wzMM2558ZnkhrsXXGHvdNvLx87Bgs",
@@ -16,7 +18,8 @@ let config = { //TODO CONFIG FILE?
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+console.log("main loading");
 
 let app;
 firebase.auth().onAuthStateChanged(function (user) {
@@ -26,8 +29,9 @@ firebase.auth().onAuthStateChanged(function (user) {
       el: '#app',
       template: '<App/>',
       components: { App },
-      router
+      router,
+      store
     })
   }
 });
-
+getAllUsers(store);

@@ -22,4 +22,15 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+input {
+  margin: 10px 0;
+  width: 100%;
+  padding: 15px;
+}
+button {
+  margin-top: 20px;
+  width: 10%;
+  cursor: pointer;
+}
 </style>
